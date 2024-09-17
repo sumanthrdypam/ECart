@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.RegisterUserFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvRegister"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:gravity="center"
+        android:background="@color/skyBlue"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/gdv1"
+        app:layout_constraintGuide_percent="0.1"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/gdv2"
+        app:layout_constraintGuide_percent="0.9"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/gdh1"
+        app:layout_constraintGuide_percent="0.2"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintBottom_toTopOf="@+id/gdh1"
+        android:textColor="@color/silver"
+        android:text="@string/full_name"
+        android:id="@+id/tvFullName"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintEnd_toStartOf="@+id/gdv2"
+        app:layout_constraintTop_toBottomOf="@+id/gdh1"
+        android:inputType="textPersonName"
+        android:background="@drawable/edittextbackground"
+        android:id="@+id/etFullName"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/gdh2"
+        app:layout_constraintGuide_percent="0.3"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintBottom_toTopOf="@+id/gdh2"
+        android:textColor="@color/silver"
+        android:text="@string/mobile_no"
+        android:id="@+id/tvMobileNo"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintEnd_toStartOf="@+id/gdv2"
+        app:layout_constraintTop_toBottomOf="@+id/gdh2"
+        android:inputType="number"
+        android:padding="5dp"
+        android:background="@drawable/edittextbackground"
+        android:id="@+id/etMobileNo"
+        />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/gdh3"
+        app:layout_constraintGuide_percent="0.4"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintBottom_toTopOf="@+id/gdh3"
+        android:textColor="@color/silver"
+        android:text="@string/email_id"
+        android:id="@+id/tvEmailId"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintEnd_toStartOf="@+id/gdv2"
+        app:layout_constraintTop_toBottomOf="@+id/gdh3"
+        android:inputType="textEmailAddress"
+        android:padding="5dp"
+        android:background="@drawable/edittextbackground"
+        android:id="@+id/etEmailId"
+        />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/gdh4"
+        app:layout_constraintGuide_percent="0.5"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintBottom_toTopOf="@+id/gdh4"
+        android:textColor="@color/silver"
+        android:text="@string/password"
+        android:id="@+id/tvPassword"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toEndOf="@+id/gdv1"
+        app:layout_constraintEnd_toStartOf="@+id/gdv2"
+        app:layout_constraintTop_toBottomOf="@+id/gdh4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:background="@drawable/edittextbackground"
+        android:id="@+id/etPassword"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:id="@+id/coordinatorlayout"
+        app:layout_constraintStart_toStartOf="@+id/gdv1"
+        app:layout_constraintEnd_toEndOf="@+id/gdv1"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_margin="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegister"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:background="@drawable/radiusbackground"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin"
+        android:text="@string/i_have_an_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/transparent"
+        android:textColor="@color/orange"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
