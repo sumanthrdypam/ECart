@@ -15,6 +15,12 @@ class ProductAdapter(val context:Context, val products:List<Product>):Adapter<Pr
 
     lateinit var onItem:(Int,Int)->Unit
 
+    lateinit var onRootClickHandle:(String)->Unit
+
+    fun setOnRootClick(f:((String)->Unit)){
+        onRootClickHandle = f
+    }
+
     fun setOnItemListener(f:((Int,Int)->Unit)){
         onItem = f
     }
@@ -30,7 +36,7 @@ class ProductAdapter(val context:Context, val products:List<Product>):Adapter<Pr
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductViewHolder, position: Int){
         with(holder.productItem){
             with(products[position]){
                 productTitle.text = productName
@@ -60,7 +66,9 @@ class ProductAdapter(val context:Context, val products:List<Product>):Adapter<Pr
                         btnAdd.text = "ADD TO CART"
                     }
                 }
-
+                root.setOnClickListener {
+                    onRootClickHandle(productId)
+                }
             }
         }
     }

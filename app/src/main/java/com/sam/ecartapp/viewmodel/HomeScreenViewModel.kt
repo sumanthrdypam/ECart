@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sam.ecartapp.model.ApiService
+import com.sam.ecartapp.model.remote.ApiService
 import com.sam.ecartapp.model.CategoryResponse
-import com.sam.ecartapp.model.RetrofitBuilder
+import com.sam.ecartapp.model.remote.RetrofitBuilder
 import com.sam.ecartapp.model.SearchResponse
 import retrofit2.Call
 import retrofit2.Callback

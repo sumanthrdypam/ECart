@@ -1,5 +1,14 @@
-package com.sam.ecartapp.model
+package com.sam.ecartapp.model.remote
 
+import com.sam.ecartapp.model.CategoryResponse
+import com.sam.ecartapp.model.LoginRequest
+import com.sam.ecartapp.model.LoginResponse
+import com.sam.ecartapp.model.ProductDetailedResponse
+import com.sam.ecartapp.model.RegisterUserRequest
+import com.sam.ecartapp.model.RegisterUserResponse
+import com.sam.ecartapp.model.SearchResponse
+import com.sam.ecartapp.model.SubCategoryListResponse
+import com.sam.ecartapp.model.SubCategoryResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -28,4 +37,7 @@ interface ApiService {
 
     @GET("Product/search")
     fun performSearch(@Query("query") query: String):Call<SearchResponse>
+
+    @GET("Product/details/{product_id}")
+    fun getDetailedProductDetails(@Path("product_id") id:String) : Call<ProductDetailedResponse>
 }

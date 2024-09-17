@@ -1,17 +1,11 @@
 package com.sam.ecartapp.view
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.sam.ecartapp.AppConstants
@@ -19,11 +13,10 @@ import com.sam.ecartapp.R
 import com.sam.ecartapp.SharedPreferenceManager
 import com.sam.ecartapp.databinding.ActivityMainBinding
 import com.sam.ecartapp.databinding.HeaderLayoutBinding
-import com.sam.ecartapp.view.category.HomeScreen
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -69,6 +62,9 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }else if(menuItem.itemId == R.id.itemCart){
                 navController.navigate(R.id.cartFragment)
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            }else if(menuItem.itemId == R.id.itemHome){
+                navController.navigate(R.id.homeScreen)
                 binding.drawerLayout.closeDrawer(GravityCompat.START)
             }
             true

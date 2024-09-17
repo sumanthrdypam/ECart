@@ -15,7 +15,14 @@ class CartViewModel(application: Application):AndroidViewModel(application) {
 
     fun addItem(cartItem: Cart){
         val cart = appDatabase.cartDao().findCartItemById(cartItem.productId)
-        //cartItem.quantity+=cart.quantity
+        appDatabase.cartDao().insertCart(cartItem)
+    }
+
+    fun updateItem(cartItem:Cart){
+        val cart = appDatabase.cartDao().findCartItemById(cartItem.productId)
+        if(cart!=null && cart.quantity>0){
+            cartItem.quantity +=cart.quantity
+        }
         appDatabase.cartDao().insertCart(cartItem)
     }
 

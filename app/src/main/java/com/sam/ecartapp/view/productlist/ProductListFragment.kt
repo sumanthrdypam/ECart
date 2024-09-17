@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sam.ecartapp.databinding.FragmentProductListBinding
 import com.sam.ecartapp.model.Product
 import com.sam.ecartapp.model.local.Cart
+import com.sam.ecartapp.view.subcategory.SubCategoryFragmentDirections
 import com.sam.ecartapp.viewmodel.CartViewModel
 
 
@@ -38,12 +40,17 @@ class ProductListFragment(val products:List<Product>) : Fragment() {
         adapter.setOnItemListener{
             productIndex,quantity->
                 if(quantity>0){
-
-                    cartViewModel.addItem(Cart(products[productIndex].productId,products[productIndex],quantity))
+                    cartViewModel.updateItem(Cart(products[productIndex].productId,products[productIndex],quantity))
                 }else{
                     cartViewModel.deleteItem(Cart(products[productIndex].productId,products[productIndex],quantity))
                 }
         }
+        adapter.setOnRootClick {
+            productId->
+            val action = SubCategoryFragmentDirections.actionSubCategoryFragmentToProductDetailsFragment(productId)
+            findNavController().navigate(action)
+        }
+
     }
 
 

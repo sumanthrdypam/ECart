@@ -1,7 +1,6 @@
 package com.sam.ecartapp.view.subcategory
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,15 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.sam.ecartapp.databinding.FragmentSubCategoryBinding
-import com.sam.ecartapp.model.ApiService
-import com.sam.ecartapp.model.RetrofitBuilder
 import com.sam.ecartapp.model.SubCategoryListResponse
-import com.sam.ecartapp.model.SubCategoryResponse
 import com.sam.ecartapp.view.productlist.ProductListFragment
 import com.sam.ecartapp.viewmodel.SubCategoryViewModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class SubCategoryFragment : Fragment() {

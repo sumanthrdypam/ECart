@@ -111,8 +111,8 @@ class HomeScreen : Fragment() {
         val productAdapter = ProductAdapter(requireActivity(), products)
         productAdapter.setOnItemListener {
                 productIndex, quantity ->
-            if(quantity>=0) {
-                cartViewModel.addItem(
+            if(quantity>0) {
+                cartViewModel.updateItem(
                     Cart(
                         products[productIndex].productId,
                         products[productIndex],

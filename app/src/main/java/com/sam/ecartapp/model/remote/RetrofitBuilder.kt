@@ -1,4 +1,4 @@
-package com.sam.ecartapp.model
+package com.sam.ecartapp.model.remote
 
 import com.sam.ecartapp.AppConstants
 import okhttp3.OkHttpClient

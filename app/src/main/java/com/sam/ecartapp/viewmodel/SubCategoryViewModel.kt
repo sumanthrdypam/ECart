@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sam.ecartapp.model.ApiService
-import com.sam.ecartapp.model.RetrofitBuilder
+import com.sam.ecartapp.model.remote.ApiService
+import com.sam.ecartapp.model.remote.RetrofitBuilder
 import com.sam.ecartapp.model.SubCategoryListResponse
 import com.sam.ecartapp.model.SubCategoryResponse
 import com.sam.ecartapp.view.productlist.ProductListFragment

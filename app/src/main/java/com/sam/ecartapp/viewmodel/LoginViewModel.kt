@@ -3,10 +3,10 @@ package com.sam.ecartapp.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sam.ecartapp.model.ApiService
+import com.sam.ecartapp.model.remote.ApiService
 import com.sam.ecartapp.model.LoginRequest
 import com.sam.ecartapp.model.LoginResponse
-import com.sam.ecartapp.model.RetrofitBuilder
+import com.sam.ecartapp.model.remote.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
