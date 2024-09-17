@@ -1,4 +1,4 @@
-package com.sam.ecartapp.view
+package com.sam.ecartapp.view.checkout
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,14 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sam.ecartapp.R
 import com.sam.ecartapp.databinding.FragmentCartBinding
+import com.sam.ecartapp.databinding.FragmentCheckoutBinding
+import com.sam.ecartapp.databinding.FragmentCheckoutCartBinding
 import com.sam.ecartapp.model.local.AppDatabase
 import com.sam.ecartapp.model.local.Cart
+import com.sam.ecartapp.view.CartFragmentDirections
+import com.sam.ecartapp.view.MainActivity
 import com.sam.ecartapp.view.productlist.CartAdapter
 import com.sam.ecartapp.viewmodel.CartViewModel
 
-class CartFragment : Fragment() {
-    private lateinit var binding : FragmentCartBinding
+class CheckoutCartFragment : Fragment() {
+    private lateinit var binding : FragmentCheckoutCartBinding
     private lateinit var cartViewModel: CartViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,33 +33,17 @@ class CartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCartBinding.inflate(layoutInflater)
+        binding = FragmentCheckoutCartBinding.inflate(layoutInflater)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setActionBar()
         val cartItems = AppDatabase.getInstance(requireActivity()).cartDao().getAllProductsAsList()
         setProductAdapter(cartItems)
         calculateTotal(cartItems)
-        binding.checkoutButton.setOnClickListener {
-            val navigation = CartFragmentDirections.actionCartFragmentToCheckoutFragment()
-            findNavController().navigate(navigation)
-        }
-    }
+        binding.btnNext.setOnClickListener {
 
-    private fun setActionBar(){
-        (activity as AppCompatActivity?)!!.apply {
-            setSupportActionBar(binding.toolbar)
-            supportActionBar?.apply {
-                title = ""//nullifying the title
-            }
-            val activity = requireActivity() as MainActivity
-            binding.hamburger.setOnClickListener {
-                activity.toggleDrawer()
-            }
         }
     }
 
@@ -78,7 +67,8 @@ class CartFragment : Fragment() {
 
         }
         binding.cartRecyclerView.adapter = productAdapter
-        binding.cartRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
+
 
 }
