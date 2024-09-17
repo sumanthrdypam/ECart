@@ -1,5 +1,6 @@
 package com.sam.ecartapp.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,6 +39,7 @@ class ProductDetailsFragment : Fragment() {
         viewModel.getDetailedProductResponse(productid)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun inflateData(productDetailedResponse: ProductDetailedResponse) {
         with(binding){
             with(productDetailedResponse){
@@ -53,14 +55,14 @@ class ProductDetailsFragment : Fragment() {
                 }
                 specModelName.text = spec
                 var count=0
-                addToCartButton.setOnClickListener {
+
                     btnPlus.setOnClickListener {
                         if(!addToCartButton.text.equals("ADD TO CART")){
                             count = addToCartButton.text.toString().toInt()
                         }
                         count++
                         addToCartButton.setText(count.toString())
-                        viewModel.onItem(productDetailedResponse.product.productId,count)
+                        viewModel.onItem(productDetailedResponse.product.productId,1)
                     }
                     btnMinus.setOnClickListener {
                         if(!addToCartButton.text.equals("ADD TO CART")){
@@ -70,12 +72,12 @@ class ProductDetailsFragment : Fragment() {
                         }
                         count--
                         addToCartButton.setText(count.toString())
-                        viewModel.onItem(productDetailedResponse.product.productId,count)
+                        viewModel.setItem(productDetailedResponse.product.productId,count)
                         if(count==0){
                             addToCartButton.text = "ADD TO CART"
                         }
                     }
-                }
+
             }
         }
 

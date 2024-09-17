@@ -67,11 +67,12 @@ class SubCategoryViewModel(application: Application): AndroidViewModel(applicati
         })
     }
 
-    fun generateFragments(products: SubCategoryListResponse) {
+/*    fun generateFragments(products: SubCategoryListResponse) {
         val fragmentList = mutableListOf<ProductListFragment>()
         val apiService = RetrofitBuilder.getRetrofit().create(ApiService::class.java)
         var count = 0
         for(i in products.subcategories){
+            Log.i("***************************","${i} enqued")
             apiService.getSubCategory(i.subcategoryId).enqueue(object:
                 Callback<SubCategoryResponse> {
                 override fun onResponse(
@@ -94,6 +95,50 @@ class SubCategoryViewModel(application: Application): AndroidViewModel(applicati
                 }
             })
         }
+    }*/
+fun generateFragments(products: SubCategoryListResponse) {
+    val fragmentList = mutableListOf<ProductListFragment>()
+    val apiService = RetrofitBuilder.getRetrofit().create(ApiService::class.java)
+
+    // Start processing the first subcategory
+    processNextSubCategory(apiService, products, fragmentList, 0)
+}
+
+    private fun processNextSubCategory(
+        apiService: ApiService,
+        products: SubCategoryListResponse,
+        fragmentList: MutableList<ProductListFragment>,
+        currentIndex: Int
+    ) {
+        if (currentIndex >= products.subcategories.size) {
+            _listOfFragments.value = fragmentList
+            return
+        }
+
+        val subcategory = products.subcategories[currentIndex]
+        Log.i("tag", "${subcategory.subcategoryId} enqueued")
+
+        apiService.getSubCategory(subcategory.subcategoryId).enqueue(object : Callback<SubCategoryResponse> {
+            override fun onResponse(
+                call: Call<SubCategoryResponse>,
+                response: Response<SubCategoryResponse>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.let { subCategoryResponse ->
+                        fragmentList.add(ProductListFragment(subCategoryResponse.products))
+                    }
+                }
+                // Process the next subcategory
+                processNextSubCategory(apiService, products, fragmentList, currentIndex + 1)
+            }
+
+            override fun onFailure(call: Call<SubCategoryResponse>, t: Throwable) {
+                Log.i("tag", "Failed to fetch subcategory ${subcategory.subcategoryId}")
+                // Even on failure, process the next subcategory
+                processNextSubCategory(apiService, products, fragmentList, currentIndex + 1)
+            }
+        })
     }
+
 
 }
