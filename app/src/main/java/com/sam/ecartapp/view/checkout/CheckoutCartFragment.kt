@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.sam.ecartapp.R
 import com.sam.ecartapp.databinding.FragmentCartBinding
 import com.sam.ecartapp.databinding.FragmentCheckoutBinding
@@ -21,8 +23,9 @@ import com.sam.ecartapp.view.productlist.CartAdapter
 import com.sam.ecartapp.viewmodel.CartViewModel
 
 class CheckoutCartFragment : Fragment() {
-    private lateinit var binding : FragmentCheckoutCartBinding
+    lateinit var binding : FragmentCheckoutCartBinding
     private lateinit var cartViewModel: CartViewModel
+    lateinit var viewPager2: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +46,8 @@ class CheckoutCartFragment : Fragment() {
         setProductAdapter(cartItems)
         calculateTotal(cartItems)
         binding.btnNext.setOnClickListener {
-
+            val viewPager = requireActivity().findViewById<ViewPager2>(R.id.viewPager)
+            viewPager?.setCurrentItem(1)
         }
     }
 

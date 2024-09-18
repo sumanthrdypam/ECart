@@ -10,20 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.sam.ecartapp.databinding.FragmentCheckoutBinding
-import com.sam.ecartapp.view.CartFragment
-import com.sam.ecartapp.view.subcategory.SubCategoryFragmentDirections
+import com.sam.ecartapp.view.checkout.address.AddressCartFragment
+import com.sam.ecartapp.view.checkout.address.PaymentFragment
 import com.sam.ecartapp.viewmodel.CheckoutViewModel
 
 
 class CheckoutFragment : Fragment() {
     lateinit var binding: FragmentCheckoutBinding
     private lateinit var checkoutViewModel: CheckoutViewModel
-
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +49,7 @@ class CheckoutFragment : Fragment() {
 
     private fun setViewPagerAndTabLayoutSetup() {
         val listOfTitles = listOf(CART_FRAGMENT, DELIVERY_FRAGMENT, PAYMENT_FRAGMENT, SUMMARY_FRAGMENT)//change to constants
-        val listOfFragments = listOf<Fragment>(CheckoutCartFragment())
+        val listOfFragments = listOf<Fragment>(CheckoutCartFragment(), AddressCartFragment(), PaymentFragment(), OrderConfirmationFragment())
         val viewPagerAdapter = CheckoutViewPagerAdapter(requireActivity(), listOfFragments)
         binding.viewPager.adapter = viewPagerAdapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager){

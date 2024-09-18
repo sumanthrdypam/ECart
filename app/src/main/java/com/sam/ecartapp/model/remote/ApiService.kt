@@ -1,5 +1,8 @@
 package com.sam.ecartapp.model.remote
 
+import com.sam.ecartapp.model.AddAddressRequest
+import com.sam.ecartapp.model.AddAddressResponse
+import com.sam.ecartapp.model.AddressResponse
 import com.sam.ecartapp.model.CategoryResponse
 import com.sam.ecartapp.model.LoginRequest
 import com.sam.ecartapp.model.LoginResponse
@@ -9,6 +12,8 @@ import com.sam.ecartapp.model.RegisterUserResponse
 import com.sam.ecartapp.model.SearchResponse
 import com.sam.ecartapp.model.SubCategoryListResponse
 import com.sam.ecartapp.model.SubCategoryResponse
+import com.sam.ecartapp.model.orderplace.PlaceOrderRequest
+import com.sam.ecartapp.model.orderplace.PlaceOrderResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -40,4 +45,14 @@ interface ApiService {
 
     @GET("Product/details/{product_id}")
     fun getDetailedProductDetails(@Path("product_id") id:String) : Call<ProductDetailedResponse>
+
+    @POST("User/address")
+    fun addAddress(@Body addAddressRequest: AddAddressRequest) : Call<AddAddressResponse>
+
+    @GET("User/addresses/{user_id}")
+    fun getAddress(@Path("user_id") userId:String) : Call<AddressResponse>
+
+    @Headers("content-type: application/json")
+    @POST("Order")
+    fun placeOrder(@Body placeOrderRequest: PlaceOrderRequest):Call<PlaceOrderResponse>
 }

@@ -23,4 +23,18 @@
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="next">NEXT</string>
+    <string name="add_address">ADD ADDRESS</string>
+    <string name="add_new_address">Add New Address</string>
+    <string name="address_title">Address Title</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="save">Save</string>
+    <string name="select_payment_option">Select Payment Option</string>
+    <string name="cod">COD</string>
+    <string name="internet_banking">Internet Banking</string>
+    <string name="debit_card_credit_card">Debit Card / Credit Card</string>
+    <string name="pay_pal">Pay Pal</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="payment_option">Payment Option</string>
+    <string name="confirm_and_place_order">CONFIRM AND PLACE ORDER</string>
 </resources>
