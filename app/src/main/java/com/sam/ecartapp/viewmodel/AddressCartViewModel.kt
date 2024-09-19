@@ -108,6 +108,9 @@ class AddressCartViewModel(application: Application):AndroidViewModel(applicatio
                 call: Call<PlaceOrderResponse>,
                 response: Response<PlaceOrderResponse>
             ) {
+                if(response.isSuccessful){
+                    appDatabase.cartDao().deleteAllFromCart()
+                }
 
             }
 

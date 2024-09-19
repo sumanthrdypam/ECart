@@ -25,4 +25,7 @@ interface CartDao {
 
     @Query("SELECT * FROM Cart WHERE productId =:id")
     fun findCartItemById(id:String) : Cart
+
+    @Query("DELETE FROM Cart")
+    fun deleteAllFromCart()
 }

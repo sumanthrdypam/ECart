@@ -6,6 +6,7 @@ import com.sam.ecartapp.model.AddressResponse
 import com.sam.ecartapp.model.CategoryResponse
 import com.sam.ecartapp.model.LoginRequest
 import com.sam.ecartapp.model.LoginResponse
+import com.sam.ecartapp.model.OrderResponse
 import com.sam.ecartapp.model.ProductDetailedResponse
 import com.sam.ecartapp.model.RegisterUserRequest
 import com.sam.ecartapp.model.RegisterUserResponse
@@ -55,4 +56,7 @@ interface ApiService {
     @Headers("content-type: application/json")
     @POST("Order")
     fun placeOrder(@Body placeOrderRequest: PlaceOrderRequest):Call<PlaceOrderResponse>
+
+    @GET("Order/userOrders/{user_id}")
+    fun getOrders(@Path("user_id") userId:String) : Call<OrderResponse>
 }
