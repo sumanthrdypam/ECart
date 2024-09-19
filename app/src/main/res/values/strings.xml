@@ -37,4 +37,12 @@
     <string name="delivery_address">Delivery Address</string>
     <string name="payment_option">Payment Option</string>
     <string name="confirm_and_place_order">CONFIRM AND PLACE ORDER</string>
+    <string name="clear">Clear Data</string>
+    <string name="display">Display</string>
+    <string name="skip">Skip</string>
+    <string name="fresh_food">Fresh Food</string>
+    <string name="you_can_order_different_kind_of_find_and_will_be_delivered_in_minutes">You can order different kind of find and will be delivered in minutes!</string>
+    <string name="fastDevilvery">Fast Delivery</string>
+    <string name="EasyPayment">Easy Payment</string>
+    <string name="getStarted">Get Started</string>
 </resources>

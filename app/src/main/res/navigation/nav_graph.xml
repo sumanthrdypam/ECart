@@ -3,17 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/onboardingFragment">
+    app:startDestination="@id/firstOnboarding">
 
-    <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="com.sam.ecartapp.view.OnboardingFragment"
-        android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" >
-        <action
-            android:id="@+id/action_onboardingFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.sam.ecartapp.view.LoginFragment"
@@ -95,4 +86,37 @@
         android:name="com.sam.ecartapp.view.orderdetails.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/firstOnboarding"
+        android:name="com.sam.ecartapp.view.onBoardingScreen.FirstOnBoardingFragment"
+        android:label="onboarding_fragment"
+        tools:layout="@layout/fragment_first_onboarding_screen" >
+        <action
+            android:id="@+id/action_firstOnboarding_to_secondOnboarding"
+            app:destination="@id/secondOnboarding" />
+        <action
+            android:id="@+id/action_firstOnboarding_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondOnboarding"
+        android:name="com.sam.ecartapp.view.onBoardingScreen.SecondOnBoardingFragment"
+        android:label="onboarding_fragment"
+        tools:layout="@layout/fragment_second_onboarding_screen" >
+        <action
+            android:id="@+id/action_secondOnboarding_to_thirdOnboarding"
+            app:destination="@id/thirdOnboarding" />
+        <action
+            android:id="@+id/action_secondOnboarding_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdOnboarding"
+        android:name="com.sam.ecartapp.view.onBoardingScreen.ThirdOnBoardingFragment"
+        android:label="onboarding_fragment"
+        tools:layout="@layout/fragment_third_onboarding_screen" >
+        <action
+            android:id="@+id/action_thirdOnboarding_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
