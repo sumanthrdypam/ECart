@@ -66,6 +66,9 @@ class MainActivity : AppCompatActivity() {
             }else if(menuItem.itemId == R.id.itemHome){
                 navController.navigate(R.id.homeScreen)
                 binding.drawerLayout.closeDrawer(GravityCompat.START)
+            }else if(menuItem.itemId == R.id.itemOrders){
+                navController.navigate(R.id.ordersFragment)
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
             }
             true
         }

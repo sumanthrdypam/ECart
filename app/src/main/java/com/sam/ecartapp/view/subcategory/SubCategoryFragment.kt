@@ -19,7 +19,6 @@ import com.sam.ecartapp.viewmodel.SubCategoryViewModel
 class SubCategoryFragment : Fragment() {
     private lateinit var binding : FragmentSubCategoryBinding
     private lateinit var subCategoryViewModel: SubCategoryViewModel
-    val listOfFragments = mutableListOf<ProductListFragment>()
 
     var subCategoryId=""
     var subCategoryName = ""
@@ -51,7 +50,6 @@ class SubCategoryFragment : Fragment() {
             fragments->
             onSubCategoryListResponseReceived(subCategoryViewModel.subCategoryListResponse.value!!,fragments)
         }
-
     }
 
     private fun setActionBar(){
@@ -76,6 +74,11 @@ class SubCategoryFragment : Fragment() {
                 tab,position->
                 tab.text = subCategoryListResponse.subcategories[position].subcategoryName
         }.attach()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        //I want to finish this one and do want add to the backstack
     }
 
 }
