@@ -24,6 +24,6 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: "Successful Build - APK"
-          body: "The latest APK build is attached as a .zip file."
+          body: "The latest APK build is successful file."
           to: sumanthpamreddy@example.com, sumanpamreddy@example.com
           from: ${{ secrets.SMTP_USERNAME }}
