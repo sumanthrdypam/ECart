@@ -19,8 +19,6 @@ jobs:
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
         with:
-          env:
-            DEBUG: true
           server_address: smtp.gmail.com
           server_port: 587
           username: ${{ secrets.SMTP_USERNAME }}
@@ -29,3 +27,5 @@ jobs:
           body: "The latest APK build is successful file."
           to: sumanthpamreddy@example.com, sumanpamreddy@example.com
           from: ${{ secrets.SMTP_USERNAME }}
+        env:
+          DEBUG: true  # Enable detailed logs for debugging
