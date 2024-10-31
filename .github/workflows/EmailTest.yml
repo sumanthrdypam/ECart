@@ -1,0 +1,29 @@
+name: AndroidBuild
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - test
+      - master
+  push:
+    branches:
+      - dev
+      - test
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Successful Build - APK"
+          body: "The latest APK build is attached as a .zip file."
+          to: sumanthpamreddy@example.com, sumanpamreddy@example.com
+          from: ${{ secrets.SMTP_USERNAME }}
