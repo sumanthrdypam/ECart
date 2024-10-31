@@ -1,4 +1,5 @@
 name: AndroidBuild
+
 on:
   pull_request:
     branches:
@@ -15,17 +16,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Step to checkout the code from the repository
       - name: Checkout master branch
         uses: actions/checkout@v4.2.2
         with:
           ref: master  # Specify the branch to checkout
 
+      # Step to set up Java JDK
       - name: Setup Java JDK
         uses: actions/setup-java@v4.5.0
+        with:
+          distribution: 'temurin'  # Specify the Java distribution
+          java-version: '11'       # Specify the Java version
 
+      # Step to build the project using Gradle
       - name: Build with Gradle
         run: ./gradlew build
 
+      # Step to upload the APK as an artifact
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.4.3
         with:
