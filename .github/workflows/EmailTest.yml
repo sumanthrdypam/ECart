@@ -1,8 +1,8 @@
-name: AndroidBuild
+#name: AndroidBuild
 
-on:
-  pull_request:
-    branches:
+#on:
+#  pull_request:
+#    branches:
       - dev
       - test
       - master
