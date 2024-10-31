@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             Toast.makeText(this@MainActivity,destination.toString(),Toast.LENGTH_SHORT).show()
             when (destination.id) {
-                R.id.onboardingFragment   -> {
-                    binding.root.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-                }
+//                R.id.onboardingFragment   -> {
+//                    binding.root.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+//                }
                 R.id.loginFragment ->{
                     binding.root.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 }
