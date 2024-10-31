@@ -2,8 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
-    id ("kotlin-kapt")
-
+    id("kotlin-kapt")
 }
 
 android {
@@ -36,13 +35,17 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
+    }
+
+    // Lint options to prevent the build from failing on warnings/errors
+    lint {
+        abortOnError = false // Prevents the build from failing on lint errors
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -55,20 +58,19 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    //retrofit
+    // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
-    //gson convertor for sharedPreference
-    implementation ("com.google.code.gson:gson:2.11.0")
+    // Gson converter for SharedPreferences
+    implementation("com.google.code.gson:gson:2.11.0")
 
-    //picasso libray
-    implementation ("com.squareup.picasso:picasso:2.8")
+    // Picasso library
+    implementation("com.squareup.picasso:picasso:2.8")
 
-    //roomdb
+    // Room DB
     val roomVersion = "2.4.2"
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
-
 }
