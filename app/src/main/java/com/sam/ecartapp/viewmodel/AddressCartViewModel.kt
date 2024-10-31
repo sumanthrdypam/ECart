@@ -76,6 +76,9 @@ class AddressCartViewModel(application: Application):AndroidViewModel(applicatio
         paymentModeOne.value = s
     }
 
+    fun dummy(){
+    }
+
     fun getCartItems() = appDatabase.cartDao().getAllProductsAsList()
 
     fun calculateTotal(): String {
