@@ -39,3 +39,16 @@ jobs:
         with:
           name: Sam.apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Successful Build - APK"
+          body: "The latest APK build is attached."
+          to: sumanthpamreddy@example.com, sumanpamreddy@example.com  # Replace with the recipients' emails
+          from: ${{ secrets.SMTP_USERNAME }}  # Your sending email (should be the same as SMTP_USERNAME)
+          attachments: app/build/outputs/apk/debug/app-debug.apk
