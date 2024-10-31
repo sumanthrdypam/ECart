@@ -22,12 +22,12 @@ jobs:
         with:
           ref: master  # Specify the branch to checkout
 
-      # Step to set up Java JDK
+      # Step to set up Java JDK 17
       - name: Setup Java JDK
         uses: actions/setup-java@v4.5.0
         with:
           distribution: 'temurin'  # Specify the Java distribution
-          java-version: '11'       # Specify the Java version
+          java-version: '17'       # Specify the Java version
 
       # Step to build the project using Gradle
       - name: Build with Gradle
